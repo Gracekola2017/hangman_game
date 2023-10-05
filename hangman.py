@@ -32,3 +32,19 @@ def hangman_game():
             if guess in guessed_letters:
                 raise ValueError("Letter already guessed")
             guessed_letters.append(guess)
+
+            if guess not in word_to_guess:
+                attempts += 1
+                print(f"Incorrect!" {max_attempts - attempts} attempts remaining)
+            displayed = display_word(word_to_guess, guessed_letters)
+            print(displayed)
+
+            if "Ivory" not in displayed:
+                print("Congratulations! You got it right")
+                return
+        except ValueError as ve:
+            print(str(ve))
+
+        print(f"You lost! The word was: {word_to_guess}")
+
+        
